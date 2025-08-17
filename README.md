@@ -172,5 +172,16 @@ GROUP BY shift;
 ```
 ## 🔍 Findings
 - **Sales Distribution:** The dataset contains transactions across multiple pizza categories such as Classic, Supreme, Veggie, and Chicken, with Classic pizzas showing consistently high order volumes.
-- **High-Value Transactions:**
+- **High-Value Transactions:** Muultiple transactions hes totla sales above $15, highlighting premium orders and larger quantities.
+- **Category Insights:** Veggie Pizzas had a relatively lower average unit price compared to Chicken and Supreme categories.
+- **Time-Based Insights:** Evening shift(> 17hrs) recored the highest number of sales, indicating strong dinner-time demand.
+- **Customer Behavior:** Customers showed varied purchasing behavior across categories, with repeat orders clustered around Classic and Supreme pizzas.
+
+## 📊 Reports
+The Pizza Sales Analysis project highlighted key insights into sales performance, customer behavior, and time-based demand. Classic pizzas emerged as the top-selling category, contributing the highest revenue and order volume, while premium pizzas like BBQ Chicken consistently ranked among the best sellers. Time-based analysis showed that evenings recorded the highest sales, followed by afternoons, confirming strong demand during peak dining hours. Monthly sales trends revealed seasonal fluctuations, with certain months outperforming others, while high-value transactions above $15 indicated opportunities for upselling. Additionally, category-wise comparisons showed that Veggie pizzas had a lower average unit price compared to Chicken and Supreme pizzas.
+
+## ✅ Conclusion
+This analysis demonstrates how SQL queries can uncover valuable business insights for the pizza industry. By identifying best-selling products, peak sales periods, and high-value transactions, businesses can optimize inventory management, plan targeted promotions, and design combo offers to maximize revenue. Overall, the project serves as a strong beginner-level SQL case study, showing how data-driven decision-making can directly improve sales strategy and business growth.
+
+
 
