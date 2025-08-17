@@ -170,3 +170,7 @@ SELECT
 FROM hourly_sale
 GROUP BY shift;
 ```
+## 🔍 Findings
+- **Sales Distribution:** The dataset contains transactions across multiple pizza categories such as Classic, Supreme, Veggie, and Chicken, with Classic pizzas showing consistently high order volumes.
+- **High-Value Transactions:**
+
