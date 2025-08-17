@@ -1,4 +1,4 @@
-# 🛍 Pizza Sales Analysis (Beginner SQL Project)
+# 🍕 Pizza Sales Analysis (Beginner SQL Project)
 This project demonstrates ***SQL skills and techniques** typicallyused by data analysts to explore, clean, and analyze retail sales data.
 The project involves setting up a pizza sales database, performing ***exploratory data analysis (EDA)**, and answering business questions through SQL queries.
 
