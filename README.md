@@ -1,17 +1,19 @@
-🛍 Pizza Sales Analysis (Beginner SQL Project)
-This project demonstrates SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data.
-The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering business questions through SQL queries.
+# 🛍 Pizza Sales Analysis (Beginner SQL Project)
+This project demonstrates ***SQL skills and techniques** typicallyused by data analysts to explore, clean, and analyze retail sales data.
+The project involves setting up a pizza sales database, performing ***exploratory data analysis (EDA)**, and answering business questions through SQL queries.
 
-📌 Database Name: pizza DB
-📌 Level: Beginner
+📌 **Database Name:** `pizza DB`  
+📌 **Level:** Beginner 
 
-🎯 Objectives
-Database Setup: Create and populate a retail sales database with provided data.
-Data Cleaning: Identify and remove records with missing/null values.
-Exploratory Data Analysis (EDA): Perform basic exploration of the dataset.
-Business Analysis: Write SQL queries to answer key business questions.
-📂 Project Structure
-1. Database Setup
+
+## 🎯 Objectives
+- **Database Setup**: Create and populate a retail sales database with provided data.
+- **Data Cleaning**: Identify and remove records with missing/null values.
+- **Exploratory Data Analysis (EDA)**: Perform basic exploration of the dataset.
+- **Business Analysis**: Write SQL queries to answer key business questions.
+## 📂 Project Structure
+### 1. Database Setup
+```sql
 CREATE DATABASE Pizza DB;
 
 CREATE TABLE pizza_sales (
@@ -28,14 +30,23 @@ CREATE TABLE pizza_sales (
     pizza_ingredients VARCHAR(150),
     pizza_name VARCHAR(100)
 );
-2. Data Exploration & Cleaning
-Record Count: Determine the total number of records in the dataset.
+```
+### 2. Data Exploration & Cleaning
+- **Record Count:** Determine the total number of records in the dataset.
+```sql
 SELECT COUNT(*) AS total_sales FROM pizza_sales;
-Customer Count: Find out how many unique customers are in the dataset.
+```
+- **Customer Count:** Find out how many unique customers are in the dataset.
+```sql
 SELECT COUNT(DISTINCT order_id) FROM pizza_sales;
-Unique Categories: Identify all unique product categories in the dataset.
+```
+- **Unique Categories:** Identify all unique product categories in the dataset.
+ ```sql
 SELECT DISTINCT pizza_category from pizza_sales;
-Check Null Values: Check for any null values in the dataset and delete records with missing data.
+```
+- **Check Null Values:** Check for any null values in the dataset and delete records with missing data.
+```sql
+
 SELECT * FROM pizza_sales 
 WHERE 
      pizza_id IS NULL
@@ -59,39 +70,53 @@ WHERE
      pizza_ingredients IS NULL
      OR
      pizza_name IS  NULL;
-3. Data Analysis & Business Queries
+ ```
+### 3. Data Analysis & Business Queries
 The following SQL queries were developed to answer specific business questions:
 
-1️.Write a SQL query to retrieve all columns for sales made on '2015-10-03':
+**1️.Write a SQL query to retrieve all columns for sales made on '2015-10-03':**
+```sql
  SELECT * 
  FROM pizza_sales
  WHERE order_date = '2015-10-03';
-2️.Write a SQL query to retrieve all transactions where the Pizza category is 'Classic' in the month of Nov-2015:
+```
+**2️.Write a SQL query to retrieve all transactions where the Pizza category is 'Classic' in the month of Nov-2015:**
+```sql
 SELECT *
 FROM pizza_sales
 WHERE pizza_category = 'Classic'
       AND
       FORMAT(order_date, 'yyyy-MM') = '2015-11';
-3️.Write a SQL query to calculate the total sales (total_sale) for each Pizza category.:
+```
+**3️.Write a SQL query to calculate the total sales (total_sale) for each Pizza category.:**
+```sql
 SELECT pizza_category,
       SUM(CAST(total_price AS DECIMAL(10,2))) AS net_sale,
       COUNT(*) AS total_orders
 FROM pizza_sales
-GROUP BY pizza_category; 
-4️.Write a SQL query to find the average unit price of customers who purchased items from the 'Veggie' category.:
+GROUP BY pizza_category;
+```
+**4️.Write a SQL query to find the average unit price of customers who purchased items from the 'Veggie' category.:**
+```sql
 SELECT 
      ROUND(AVG(unit_price),2) AS avg_unit_price
 FROM pizza_sales
 WHERE pizza_category = 'Veggie';
-5️.Write a SQL query to find all transactions where the total_price is greater than 15.:
+```
+**5️.Write a SQL query to find all transactions where the total_price is greater than 15.:**
+```sql
 SELECT * FROM pizza_sales
 WHERE total_price > 15;
-6️.Write a SQL query to find the total number of transactions (order_id) made by each category.:
+```
+**6️.Write a SQL query to find the total number of transactions (order_id) made by each category.:**
+```sql
 SELECT pizza_category,
        count(*) AS total_transaction
 FROM pizza_sales
 GROUP BY pizza_category;
-7️.Write a SQL query to calculate the average sale for each month. Find out best selling month in each year:
+```
+**7️.Write a SQL query to calculate the average sale for each month. Find out best selling month in each year:**
+```sql
 WITH monthly_sales AS (
     SELECT 
         YEAR(order_date) AS year,
@@ -110,20 +135,26 @@ FROM (
     FROM monthly_sales
 ) t1
 WHERE rank = 1;
-8️.Write a SQL query to find the top 5 pizza name based on the highest total sales :
+```
+**8️.Write a SQL query to find the top 5 pizza name based on the highest total sales :**
+```sql
 SELECT TOP 5
     pizza_name,
     SUM(total_price) as total_sales
 FROM pizza_sales
 GROUP BY pizza_name
 ORDER BY SUM(total_price) DESC;
-9.Write a SQL query to find the number of unique customers who purchased items from each category.:
+```
+**9.Write a SQL query to find the number of unique customers who purchased items from each category.:**
+```sql
 SELECT 
     category,    
     COUNT(DISTINCT customer_id) as cnt_unique_cs
 FROM retail_sales
 GROUP BY category;
-10.Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17):
+```
+**10.Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17):**
+```sql
 WITH hourly_sale AS (
     SELECT *,
         CASE
@@ -138,3 +169,4 @@ SELECT
     SUM(total_price) AS total_sales  -- use SUM for sales value
 FROM hourly_sale
 GROUP BY shift;
+```
